@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[
+{% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %}
+{% assign shuffled_users = user_pages %}
+{% for post in shuffled_users offset:3 %}
+{
+    "n": "{{ post.n }}",
+    "d": "{{ post.d }}",
+    "u": "{{ post.u }}",
+  }
+  {% if forloop.last == false %},{% endif %}
+{% endfor %}
+]

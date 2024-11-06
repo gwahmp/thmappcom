@@ -1,0 +1,38 @@
+{
+  "name": "minifymix",
+  "version": "1.1.2",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "minifymix": "bin/cmd.js"
+  },
+  "keywords": [
+    "js",
+    "minify",
+    "minifymix",
+    "terser",
+    "obfuscator",
+    "JavaScriptObfuscator",
+    "javaScriptobfuscator",
+    "javascript-obfuscator",
+    "dzqdzq"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzqdzq/minifymix.git"
+  },
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.1",
+    "terser": "^5.31.3"
+  },
+  "author": "dzqdzq",
+  "license": "ISC",
+  "description": "JavaScript minification and obfuscation tool",
+  "bugs": {
+    "url": "https://github.com/dzqdzq/minifymix/issues"
+  },
+  "homepage": "https://github.com/dzqdzq/minifymix#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
