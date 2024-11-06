@@ -2,14 +2,9 @@
 layout: null
 ---
 [
-{% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %}
-{% assign shuffled_users = user_pages %}
-{% for post in shuffled_users offset:3 %}
-{
-    "n": "{{ post.n }}",
-    "d": "{{ post.d }}",
-    "u": "{{ post.u }}",
-  }
-  {% if forloop.last == false %},{% endif %}
-{% endfor %}
+{% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %} {% for post in user_pages offset: 3 %} {% if post.u %}   {
+    "n": "{{ post.n | escape }}",
+    "t": "{{ post.t | escape }}",
+    "u": "{{ post.u | escape }}"
+  }, {% endif %} {% endfor %} {}
 ]
