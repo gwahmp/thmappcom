@@ -1,0 +1,153 @@
+---
+layout: default
+---
+
+
+<div class="container mt-5">
+    <div class="row">
+
+                  <!-- Sidebar -->
+                  <aside class="col-md-4 col-lg-4">
+                    <div class="sticky-top pe-lg-4">
+                      <span class="text-center">
+                        
+                        <img src="{% if page.dp %}{{ page.dp | replace: 's96', 's200' }}{% else %}/community/assets/images/dp.webp{% endif %}" class="mb-3 d-block mx-auto" alt="Profile Picture" width="100%" height="auto">
+                        <h2 class="mb-1 display-6 fs-5">{{ page.n }}</h2>
+                        <p class="text-muted">{{ page.t }}</p>
+                        <a href="{{ page.w }}" class="btn w-100 btn-outline-primary mb-4" target="_blank">Visit Website</a>
+                      </span>
+                    <!-- Social Links -->
+                    <!-- Social Links -->
+      <div class="d-flex justify-content-center gap-3 mb-3">
+{% if page.l and page.l.size >= 3 %}
+<a href="{{ page.l }}" class="text-secondary" target="_blank" aria-label="LinkedIn profile of {{ page.n }}">
+  <i class="bi bi-linkedin fs-3"></i>
+        </a>
+        {% endif %}
+        {% if page.f and page.f.size >= 3 %}
+        <a href="{{ page.f }}" class="text-secondary" target="_blank" aria-label="Facebook profile of {{ page.n }}">
+          <i class="bi bi-facebook fs-3"></i>
+        </a>
+        {% endif %}
+        {% if page.x and page.x.size >= 3 %}
+        <a href="{{ page.x }}" class="text-secondary" target="_blank" aria-label="X (Twitter) profile of {{ page.n }}">
+          <i class="bi bi-twitter fs-3"></i>
+        </a>
+        {% endif %}
+        {% if page.i and page.i.size >= 3 %}
+        <a href="{{ page.i }}" class="text-secondary" target="_blank" aria-label="Instagram profile of {{ page.n }}">
+          <i class="bi bi-instagram fs-3"></i>
+        </a>
+        {% endif %}
+        {% if page.y and page.y.size >= 3 %}
+        <a href="{{ page.y }}" class="text-secondary" target="_blank" aria-label="YouTube Channel of {{ page.n }}">
+          <i class="bi bi-youtube fs-3"></i>
+        </a>
+        {% endif %}
+      </div>
+      
+                  </div>
+                  </aside>
+      <!-- Main Content -->
+      <main class="col-md-8 col-lg-8">
+        
+            <h1>About {{ page.n }}</h1><hr/>
+            <p>{{ content }}</p><hr/>
+
+        
+{% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %}
+{% if user_pages.size > 0 %}
+    {% assign shuffled_users = user_pages | limit: 3 %}
+<ul class="list-group list-group-flush user-container">
+        {% for page in shuffled_users %}
+          
+                <li class="list-group-item ps-0">
+                    <a class="text-dark" href="../{{page.u}}">
+                      <h3 class="card-title">{{ page.n }}</h3> 
+                      <p class="card-text">{{ page.t }}</p> 
+                    </a>
+                </li>
+        {% endfor %}
+    </ul>            
+{% else %}
+    <div class="col">
+        <p>No projects found.</p>
+    </div>
+{% endif %}
+
+
+        
+      </main>
+        
+    </div>
+  </div>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  let isLoading = false; // Flag to prevent multiple concurrent calls
+  let postIndex = 0; // Tracks the number of posts loaded
+  const container = document.querySelector('.user-container');
+  const endMessage = document.createElement('p');
+  endMessage.classList.add('end-message');
+  endMessage.textContent = 'No further data to display.';
+  endMessage.style.display = 'none'; // Initially hidden
+
+
+  // Function to load posts from JSON endpoint
+  async function loadMorePosts() {
+    if (isLoading) return; // Prevent repeated calls
+    isLoading = true;
+
+    try {
+      const response = await fetch('../users.json');
+      if (!response.ok) throw new Error('Network response was not ok');
+      const posts = await response.json();
+
+      if (postIndex >= posts.length) {
+        // Display message if all posts are loaded
+        container.appendChild(endMessage);
+
+        endMessage.style.display = 'block';
+        return;
+      }
+
+      // Load 20 posts at a time
+      const postsToLoad = posts.slice(postIndex, postIndex + 3);
+      postIndex += 3;
+
+      postsToLoad.forEach(post => {
+        if(post.u){
+          console.log(post.u);
+        const postElement = document.createElement('li');
+        postElement.classList.add('post', 'list-group-item', 'ps-0');
+        postElement.innerHTML = `
+          <a class="text-dark" href="../${post.u}">
+            <h3 class="card-title">${post.n}</h3> 
+            <p class="card-text">${post.t}</p> 
+          </a>
+        `;
+        container.appendChild(postElement);
+        }
+      });
+
+      if (postIndex >= posts.length) {
+        // Show message if this was the last batch
+        endMessage.style.display = 'block';
+      }
+
+    } catch (error) {
+      console.error('Error loading posts:', error);
+    } finally {
+      isLoading = false; // Reset flag for next call
+    }
+  }
+
+  // Infinite scroll event
+  window.addEventListener('scroll', function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      loadMorePosts();
+    }
+  });
+});
+
+  </script>
