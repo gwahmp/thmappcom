@@ -1,0 +1,28 @@
+name: Update or Add JSON Files in _data Folder
+
+on:
+  workflow_dispatch: # Allows manual or API-triggered execution
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update or add JSON files in _data
+        run: |
+          # Example JSON update or creation logic
+          mkdir -p _data
+          echo '{"new_key": "new_value"}' > _data/new_data.json
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Action"
+          git add _data/*.json
+          git commit -m "Update or add JSON files in _data"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

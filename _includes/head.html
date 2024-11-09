@@ -3,7 +3,5 @@
 {% else if page.title %}
 <title>{{ page.title }} </title>
 {% endif %}
+
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 | escape }}{% elsif page.content %}{{ page.content | strip_html | truncate: 160 | escape }} {% elsif page.description %}{{ page.description | strip_html | truncate: 160 | escape }} {% endif %}">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-signin-client_id" content="69794757092-emuuqmul46p24bre1qsim9veuf5hdnoh.apps.googleusercontent.com">
