@@ -51,10 +51,11 @@ layout: default
       <!-- Main Content -->
       <main class="col-md-8 col-lg-8">
         
-            <h1>About {{ page.n }}</h1><hr/>
-            <p>{{ content }}</p><hr/>
-
-        
+            <h1>About {{ page.n }}</h1>
+            <hr/><p>{{ content }}</p>
+            
+            <!--
+            <hr/>        
 {% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %}
 {% if user_pages.size > 0 %}
     {% assign shuffled_users = user_pages | limit: 3 %}
@@ -74,7 +75,7 @@ layout: default
         <p>No projects found.</p>
     </div>
 {% endif %}
-
+  -->
 
         
       </main>

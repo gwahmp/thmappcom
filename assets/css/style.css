@@ -27,7 +27,9 @@ header.sticky-top{
 .member-only,
 .guest-only,
 .register-btn,
-.register-card{
+.register-card,
+.section404,
+.profile-created{
     display:none;
 }
 
