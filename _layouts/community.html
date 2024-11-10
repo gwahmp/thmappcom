@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include head.html %}
+  <link rel="stylesheet" href="/community/assets/css/style.css">
+  <link rel="stylesheet" href="/community/assets/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="/community/assets/lib/bootstrap-icons.min.css">
+  <meta name="google-signin-client_id" content="69794757092-emuuqmul46p24bre1qsim9veuf5hdnoh.apps.googleusercontent.com">
+  <script src="/community/assets/lib/jquery.min.js"></script>
+  <script src="/community/assets/js/wmlib.js" defer></script>
+</head>
+<body>
+{% include header.html %}
+<main>
+  {{ content }}
+</main>
+
+<!-- Footer -->
+<footer class="bg-light text-dark mt-5 py-4">
+  <div class="container">
+    <div class="mt-3">
+      <p>&copy; 2024 Wikimint Community. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/community/assets/lib/bootstrap.bundle.min.js"></script>
+
+<script src="/community/assets/js/wmlog.js"></script>
+
+
+<div class="modal" id="introBanner" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="card mt-5 mx-auto justify-content-center align-items-center d-flex" style="max-width: 600px;">
+                <div class="card-body p-lg-5 p-4 text-center">
+                <div class="guest-only">  
+                    <img class="mb-4" src="/community/assets/images/wikimint-logo.webp"/>  
+                    <h1>Wikimint Community</h1><hr/>
+                    <p>Wikimint Community is a space for users to share their voice, build a public profile, and connect with others. Join a vibrant network, post status updates, and engage with like-minded people across diverse interests.</p>
+                <center>
+                    <div id="my-signin2" class="mx-auto">
+                        <button class="btn btn-primary gsignin-ph">Sign in with Google</button>
+                    </div>
+                </center>   
+                </div> 
+                <div class="member-only">
+                    <span class="d-block display-6 lead">Welcome</span>
+                    <p class="m-name"></p>
+                    <p>
+                    <a href="https://connect.wikimint.com"><button class="btn btn-primary d-none">Go to feeds</button></a>
+                    </p>
+                    <a class="m-link" href="#profile">My profile</a>
+                    <a class="/community/dashboard" href="#profile">Dashboard</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  $(document).ready(function() {
+    $('#introBanner').modal('show');
+  });
+</script>
+
+</body>
+</html>
