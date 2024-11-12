@@ -8,16 +8,17 @@ layout: default
 
                   <!-- Sidebar -->
                   <aside class="col-md-4 col-lg-4">
-                    <div class="sticky-top pe-lg-4">
+                    <div class="pe-lg-4">
                       <span class="text-center">
                         
                         <img src="{% if page.dp %}{{ page.dp | replace: 's96', 's200' }}{% else %}/community/assets/images/dp.webp{% endif %}" class="mb-3 d-block mx-auto" alt="Profile Picture" width="100%" height="auto">
                         <h2 class="mb-1 display-6 fs-5">{{ page.n }}</h2>
                         <p class="text-muted">{{ page.t }}</p>
-                        <a href="{{ page.w }}" class="btn w-100 btn-outline-primary mb-4" target="_blank">Visit Website</a>
+                        <a href="{{ page.w }}" class="btn w-100 btn-outline-primary mb-2" target="_blank">Visit Website</a>
                       </span>
-                    <!-- Social Links -->
-                    <!-- Social Links -->
+                      <button type="button" class="btn btn-primary author-only w-100" data-bs-toggle="modal" data-bs-target="#editProfileModal" style="display:none;">
+                        Edit Profile
+                      </button>
       <div class="d-flex justify-content-center gap-3 mb-3">
 {% if page.l and page.l.size >= 3 %}
 <a href="{{ page.l }}" class="text-secondary" target="_blank" aria-label="LinkedIn profile of {{ page.n }}">
@@ -53,6 +54,8 @@ layout: default
         
             <h1>About {{ page.n }}</h1>
             <hr/><p>{{ content }}</p>
+
+            {% include editprofile.html %}
             
             <!--
             <hr/>        
@@ -82,7 +85,7 @@ layout: default
         
     </div>
   </div>
-
+<!--
   <script>
 document.addEventListener('DOMContentLoaded', function() {
   let isLoading = false; // Flag to prevent multiple concurrent calls
@@ -152,3 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
   </script>
+  -->
+
+  <script src="/community/assets/js/wmreg.js"></script>

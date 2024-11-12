@@ -11,7 +11,7 @@
     margin: 0;      
 }
 header{
-    z-index:999999999 ! important;
+    z-index:999 ! important;
 }
 .sticky-top{
     top:60px;
@@ -29,7 +29,8 @@ header.sticky-top{
 .register-btn,
 .register-card,
 .section404,
-.profile-created{
+.profile-created,
+.author-only{
     display:none;
 }
 
