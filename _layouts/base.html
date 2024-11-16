@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% include head.html %}
   {% assign ver = site.data.config.v %}
+  <meta name="site-version" content="{{ver}}">
+  {% include head.html %}
   <link rel="stylesheet" href="/community/assets/css/style.css?v={{ver}}">
   <link rel="stylesheet" href="/community/assets/lib/bootstrap.min.css">
   <link rel="stylesheet" href="/community/assets/lib/bootstrap-icons.min.css">
