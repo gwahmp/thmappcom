@@ -33,4 +33,6 @@ header.sticky-top{
 .author-only{
     display:none;
 }
-
+a{
+    text-decoration:none ! important;
+}

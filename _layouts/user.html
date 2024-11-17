@@ -12,9 +12,15 @@ layout: default
                       <span class="text-center">
                         
                         <img src="{% if page.dp %}{{ page.dp | replace: 's96', 's200' }}{% else %}/community/assets/images/dp.webp{% endif %}" class="mb-3 d-block mx-auto" alt="Profile Picture" width="100%" height="auto">
+                        {% if page.n %}
                         <h2 class="mb-1 display-6 fs-5">{{ page.n }}</h2>
+                        {% endif %}
+                        {% if page.t %}
                         <p class="text-muted">{{ page.t }}</p>
+                        {% endif %}
+                        {% if page.w %}
                         <a href="{{ page.w }}" class="btn w-100 btn-outline-primary mb-2" target="_blank">Visit Website</a>
+                        {% endif %}
                       </span>
                       <button type="button" class="btn btn-primary author-only w-100" data-bs-toggle="modal" data-bs-target="#editProfileModal" style="display:none;">
                         Edit Profile
@@ -157,4 +163,4 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
   -->
   {% assign ver = site.data.config.v %}
-  <script src="/community/assets/js/wmreg.js?v={{ver}}"></script>
+  <script src="/community/assets/js/wmreg.js?v={{site.data.config.v}}"></script>

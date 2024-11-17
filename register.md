@@ -74,4 +74,4 @@ title: Join Wikimint Community – Where Your Voice Counts
 
 
 </script>
-<script src="/community/assets/js/wmreg.js"></script>
+<script src="/community/assets/js/wmreg.js?v={{site.data.config.v}}"></script>

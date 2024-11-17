@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% assign ver = site.data.config.v %}
-  <meta name="site-version" content="{{ver}}">
+  <meta name="site-version" content="{{site.data.config.v}}">
   {% include head.html %}
-  <link rel="stylesheet" href="/community/assets/css/style.css?v={{ver}}">
+  <link rel="stylesheet" href="/community/assets/css/style.css?v={{site.data.config.v}}">
   <link rel="stylesheet" href="/community/assets/lib/bootstrap.min.css">
   <link rel="stylesheet" href="/community/assets/lib/bootstrap-icons.min.css">
   <meta name="google-signin-client_id" content="69794757092-emuuqmul46p24bre1qsim9veuf5hdnoh.apps.googleusercontent.com">
   <script src="/community/assets/lib/jquery.min.js"></script>
-  <script src="/community/assets/js/wmlib.js?v={{ver}}"></script>
+  <script src="/community/assets/js/wmlib.js?v={{site.data.config.v}}"></script>
 </head>
 <body>
 {% include header.html %}
@@ -50,7 +49,7 @@
 
 <script src="/community/assets/lib/bootstrap.bundle.min.js"></script>
 
-<script src="/community/assets/js/wmlog.js?v={{ver}}"></script>
+<script src="/community/assets/js/wmlog.js?v={{site.data.config.v}}"></script>
 
 
 </body>
