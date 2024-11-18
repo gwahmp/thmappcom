@@ -30,7 +30,8 @@ header.sticky-top{
 .register-card,
 .section404,
 .profile-created,
-.author-only{
+.author-only,
+.loader{
     display:none;
 }
 a{

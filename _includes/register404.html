@@ -61,7 +61,13 @@ You profile was created successfully! Please wait few seconds to get updated.</d
            <label class="form-label mt-3" for="youtube">YouTube URL</label>
            <input type="url" class="form-control" id="youtube" name="y">
          </div>
-         <button type="submit" class="btn btn-primary mt-3">Register</button>
+         <button type="submit" class="btn btn-primary mt-3">
+          <span class="loader">
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+          <span role="status">Processing...</span>
+        </span>
+          <span class="default-status">Register</span>
+         </button>
      </form>
      </div>
      </div>

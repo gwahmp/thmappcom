@@ -60,107 +60,11 @@ layout: default
         
             <h1>About {{ page.n }}</h1>
             <hr/><p>{{ content }}</p>
-
             {% include editprofile.html %}
-            
-            <!--
-            <hr/>        
-{% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %}
-{% if user_pages.size > 0 %}
-    {% assign shuffled_users = user_pages | limit: 3 %}
-<ul class="list-group list-group-flush user-container">
-        {% for page in shuffled_users %}
-          
-                <li class="list-group-item ps-0">
-                    <a class="text-dark" href="../{{page.u}}">
-                      <h3 class="card-title">{{ page.n }}</h3> 
-                      <p class="card-text">{{ page.t }}</p> 
-                    </a>
-                </li>
-        {% endfor %}
-    </ul>            
-{% else %}
-    <div class="col">
-        <p>No projects found.</p>
-    </div>
-{% endif %}
-  -->
-
-        
       </main>
         
     </div>
   </div>
-<!--
-  <script>
-document.addEventListener('DOMContentLoaded', function() {
-  let isLoading = false; // Flag to prevent multiple concurrent calls
-  let postIndex = 0; // Tracks the number of posts loaded
-  const container = document.querySelector('.user-container');
-  const endMessage = document.createElement('p');
-  endMessage.classList.add('end-message');
-  endMessage.textContent = 'No further data to display.';
-  endMessage.style.display = 'none'; // Initially hidden
 
-
-  // Function to load posts from JSON endpoint
-  async function loadMorePosts() {
-    if (isLoading) return; // Prevent repeated calls
-    isLoading = true;
-
-    try {
-      const response = await fetch('../users.json');
-      if (!response.ok) throw new Error('Network response was not ok');
-      const posts = await response.json();
-
-      if (postIndex >= posts.length) {
-        // Display message if all posts are loaded
-        container.appendChild(endMessage);
-
-        endMessage.style.display = 'block';
-        return;
-      }
-
-      // Load 20 posts at a time
-      const postsToLoad = posts.slice(postIndex, postIndex + 3);
-      postIndex += 3;
-
-      postsToLoad.forEach(post => {
-        if(post.u){
-          console.log(post.u);
-        const postElement = document.createElement('li');
-        postElement.classList.add('post', 'list-group-item', 'ps-0');
-        postElement.innerHTML = `
-          <a class="text-dark" href="../${post.u}">
-            <h3 class="card-title">${post.n}</h3> 
-            <p class="card-text">${post.t}</p> 
-          </a>
-        `;
-        container.appendChild(postElement);
-        }
-      });
-
-      if (postIndex >= posts.length) {
-        // Show message if this was the last batch
-        endMessage.style.display = 'block';
-      }
-
-    } catch (error) {
-      console.error('Error loading posts:', error);
-    } finally {
-      isLoading = false; // Reset flag for next call
-    }
-  }
-
-  // Infinite scroll event
-  window.addEventListener('scroll', function() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      loadMorePosts();
-    }
-  });
-});
-
-  </script>
-  -->
   {% assign ver = site.data.config.v %}
   <script src="/community/assets/js/wmreg.js?v={{site.data.config.v}}"></script>
