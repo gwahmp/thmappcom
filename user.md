@@ -13,13 +13,13 @@ description: Join Wikimint Community and eplore new things everyday
 <h1>Connect with community members</h1><hr/>
 <p>Dive into a dynamic community where members share their skills, portfolios, and creative journeys. Whether it’s coding, art, or innovation, find inspiration and engage with people who are making an impact.</p>
 
-<h2>Activbe members</h2><hr/>
+<h2>Active members</h2><hr/>
 {% assign user_pages = site.pages | where_exp: "page", "page.url contains '/user/'" %}
 
 {% assign shuffled_users = user_pages | sort: 'random' | limit: 6 %}
 
 {% for page in shuffled_users %}
-
+{% if page.n %}
 <a class="text-dark" href="../user/{{page.u}}">
 <div class="card mb-3 border-0 bg-light">
   <div class="row g-0">
@@ -35,7 +35,7 @@ description: Join Wikimint Community and eplore new things everyday
   </div>
 </div>
 </a>
-
+{% endif %}
 
 {% endfor %}
 
