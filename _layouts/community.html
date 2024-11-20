@@ -31,7 +31,13 @@
                     <p>Wikimint Community is a space for users to share their voice, build a public profile, and connect with others. Join a vibrant network, post status updates, and engage with like-minded people across diverse interests.</p>
                 <center>
                     <div id="my-signin2" class="mx-auto">
-                        <button class="btn btn-primary gsignin-ph">Sign in with Google</button>
+                        <button class="btn btn-primary gsignin-ph btn-loader">
+                          <span class="loader">
+                            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                          <span role="status">Please wait...</span>
+                        </span>
+                          <span class="default-status">Sign in with Google</span>
+                        </button>
                     </div>
                 </center>   
                 </div> 
@@ -39,7 +45,7 @@
                     <span class="d-block display-6 lead">Welcome</span>
                     <p class="display-5 lead fw-normal fs-3 m-name my-3 text-success"></p>
                     <p>
-                    <a href="/community/user"><button class="btn btn-primary">Explore the Community</button></a>
+                    <a href="/community/user"><button class="btn btn-light border-secondary">Explore the Community</button></a>
                     </p>
                     <a class="m-link me-3" href="#profile">My profile</a>
                     <a class="/community/dashboard" href="/community/dashboard">Dashboard</a>
