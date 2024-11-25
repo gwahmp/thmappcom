@@ -3,7 +3,7 @@ title: App | Community
 description: >- 
   Wikimint Community
 
-url: "https://app.wikimint.com/community" 
+url: "https://app.wikimint.com" 
 baseurl: "" 
 permalink: pretty
 
@@ -25,6 +25,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-include-cache
+
+
 
 exclude:
   - _admin
